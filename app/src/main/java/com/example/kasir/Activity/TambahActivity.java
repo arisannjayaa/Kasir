@@ -19,9 +19,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TambahActivity extends AppCompatActivity {
-    private EditText etNamaBarang, etJumlah, etHarga, etTotalBayar, etTglPembelian;
-    private String namaBarang, tglPembelian;
-    private int jumlah, harga, totalBayar;
+    private EditText etNamaBarang, etJumlah, etHarga;
+    private String namaBarang;
+    private int jumlah, harga;
     private Button btnSimpan;
 
     @Override
@@ -32,8 +32,6 @@ public class TambahActivity extends AppCompatActivity {
         etNamaBarang = findViewById(R.id.et_nama_barang);
         etJumlah = findViewById(R.id.et_jumlah);
         etHarga = findViewById(R.id.et_harga);
-        etTotalBayar = findViewById(R.id.et_total_bayar);
-        etTglPembelian = findViewById(R.id.et_tgl_pembelian);
         btnSimpan = findViewById(R.id.btn_simpan);
 
          btnSimpan.setOnClickListener(new View.OnClickListener() {
@@ -42,9 +40,6 @@ public class TambahActivity extends AppCompatActivity {
                  namaBarang = etNamaBarang.getText().toString();
                  jumlah = Integer.parseInt(etJumlah.getText().toString());
                  harga = Integer.parseInt(etHarga.getText().toString());
-                 totalBayar = Integer.parseInt(etTotalBayar.getText().toString());
-                 tglPembelian = etTglPembelian.getText().toString();
-
                  createBarang();
              }
          });
@@ -53,14 +48,13 @@ public class TambahActivity extends AppCompatActivity {
     public void createBarang() {
 
         APIRequestDataBarang APIBarang = RetroServer.connection().create(APIRequestDataBarang.class);
-        Call<BarangResponseModel> proses = APIBarang.ardCreateDataBarang(namaBarang, jumlah, harga, totalBayar, tglPembelian);
+        Call<BarangResponseModel> proses = APIBarang.ardCreateDataBarang(namaBarang, jumlah, harga);
 
         proses.enqueue(new Callback<BarangResponseModel>() {
             @Override
             public void onResponse(Call<BarangResponseModel> call, Response<BarangResponseModel> response) {
                 int kode = response.body().getKode();
                 String pesan = response.body().getPesan();
-
                 Toast.makeText(TambahActivity.this, "Kode : "+kode+" Pesan : "+pesan, Toast.LENGTH_SHORT).show();
                 finish();
             }

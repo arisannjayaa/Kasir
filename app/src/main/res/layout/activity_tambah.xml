@@ -41,20 +41,6 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Jumlah"
-            android:inputType="number"
-            android:id="@+id/et_jumlah"
-            android:background="@color/white"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="Harga"
             android:inputType="number"
             android:id="@+id/et_harga"
@@ -69,23 +55,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Total bayar"
+            android:hint="Jumlah"
             android:inputType="number"
-            android:id="@+id/et_total_bayar"
-            android:background="@color/white"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tanggal pembelian"
-            android:inputType="date"
-            android:id="@+id/et_tgl_pembelian"
+            android:id="@+id/et_jumlah"
             android:background="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,30 +35,30 @@ public class BarangAdapter extends RecyclerView.Adapter<BarangAdapter.HolderBara
     @Override
     public void onBindViewHolder(@NonNull HolderBarang holder, int position) {
         BarangModel BM = listBarang.get(position);
-//        holder.tvKodeBarang.setText(String.valueOf(BM.getKode_barang()));
         holder.tvNamaBarang.setText(BM.getNama_barang());
         holder.tvJumlah.setText(String.valueOf(BM.getJumlah()));
         holder.tvHarga.setText(String.valueOf(BM.getHarga()));
-//        holder.tvTotalBayar.setText(String.valueOf(BM.getTotal_bayar()));
-        holder.tvTglPembelian.setText(BM.getTgl_pembelian());
     }
 
     @Override
     public int getItemCount() {
-        return listBarang.size();
+        if (listBarang != null) {
+            return listBarang.size();
+        }
+        else {
+            Toast.makeText(ctx, "Data Tidak Tersedia!", Toast.LENGTH_SHORT).show();
+            return 0;
+        }
+
     }
 
     public class HolderBarang extends RecyclerView.ViewHolder {
-        TextView tvKodeBarang, tvNamaBarang, tvJumlah, tvHarga, tvTotalBayar, tvTglPembelian;
+        TextView tvKodeBarang, tvNamaBarang, tvJumlah, tvHarga;
         public HolderBarang(@NonNull View itemView) {
             super(itemView);
-
-//            tvKodeBarang =  itemView.findViewById(R.id.tv_kode_barang);
             tvNamaBarang = itemView.findViewById(R.id.tv_nama_barang);
             tvJumlah = itemView.findViewById(R.id.tv_jumlah);
             tvHarga = itemView.findViewById(R.id.tv_harga);
-//            tvTotalBayar = itemView.findViewById(R.id.tv_total_bayar);
-            tvTglPembelian = itemView.findViewById(R.id.tv_tgl_pembelian);
 
         }
     }

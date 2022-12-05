@@ -17,8 +17,6 @@ public interface APIRequestDataBarang {
     Call<BarangResponseModel> ardCreateDataBarang(
             @Field("nama") String nama,
             @Field("jumlah") int jumlah,
-            @Field("harga") int harga,
-            @Field("total_bayar") int total_bayar,
-            @Field("tgl_pembelian") String tgl_pembelian
+            @Field("harga") int harga
     );
 }

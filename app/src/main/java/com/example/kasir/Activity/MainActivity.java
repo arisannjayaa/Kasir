@@ -74,9 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 adbarang = new BarangAdapter(MainActivity.this, listBarang);
                 rvBarang.setAdapter(adbarang);
                 adbarang.notifyDataSetChanged();
-                Toast.makeText(MainActivity.this, "Kode : "+kode+" Pesan : "+pesan, Toast.LENGTH_SHORT).show();
                 pbBarang.setVisibility(View.GONE);
-
             }
 
             @Override
